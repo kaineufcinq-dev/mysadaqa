@@ -387,56 +387,6 @@ body {
 
 
 /* =========================================================
-   AMOUNT CHIPS
-========================================================= */
-
-.amount-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 24px;
-}
-
-.amount-chip {
-    height: 48px;
-    min-width: 64px;
-    padding: 0 18px;
-    font-family: var(--font);
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--c-ink);
-    background: var(--c-card);
-    border: 2px solid var(--c-border);
-    border-radius: var(--r-md);
-    cursor: pointer;
-    transition: all 0.18s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.amount-chip:hover {
-    border-color: var(--c-primary);
-    color: var(--c-primary);
-    transform: translateY(-1px);
-}
-
-.amount-chip.selected {
-    background: var(--c-primary);
-    border-color: var(--c-primary);
-    color: #fff;
-    box-shadow: var(--shadow-primary);
-}
-
-.amount-chip-other {
-    min-width: 72px;
-    font-size: 14px;
-    color: var(--c-muted);
-}
-
-
-/* =========================================================
    BUY STEPS (compact)
 ========================================================= */
 
@@ -968,14 +918,6 @@ footer {
     .step-header h2 { font-size: 20px; }
     .step-header p { font-size: 13px; line-height: 1.6; }
 
-    .amount-chips { gap: 8px; margin-bottom: 20px; }
-    .amount-chip {
-        height: 44px;
-        min-width: 56px;
-        padding: 0 14px;
-        font-size: 14px;
-    }
-
     .buy-steps { gap: 8px; margin-bottom: 20px; }
     .buy-step {
         padding: 12px 14px;
@@ -1058,14 +1000,6 @@ footer {
     }
     .info-card-body h3 { font-size: 13px; }
     .info-card-body p { font-size: 12px; }
-
-    .amount-chips { gap: 6px; }
-    .amount-chip {
-        height: 40px;
-        min-width: 50px;
-        padding: 0 12px;
-        font-size: 13px;
-    }
 
     .btn-primary svg, .btn-ghost svg { flex-shrink: 0; }
 

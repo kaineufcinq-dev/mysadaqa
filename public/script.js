@@ -56,17 +56,6 @@ function copyLink() {
    AMOUNT SELECTION
 ========================================================= */
 
-var selectedAmount = null;
-
-function selectAmount(btn, amount) {
-    document.querySelectorAll('.amount-chip').forEach(function (c) {
-        c.classList.remove('selected');
-    });
-    btn.classList.add('selected');
-    selectedAmount = amount;
-}
-
-
 /* =========================================================
    STEP NAVIGATION
 ========================================================= */
