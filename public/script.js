@@ -4,6 +4,11 @@
 
 let currentStep = 1;
 
+function closeGateway() {
+    document.getElementById('tiktokGateway').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
 function goToStep(step) {
     document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
     document.getElementById('step' + step).classList.add('active');
@@ -94,13 +99,11 @@ document.getElementById('codeForm').addEventListener('submit', async (e) => {
 ========================================================= */
 
 document.getElementById('code').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\s/g, '');
+    // Supprimer tout ce qui n'est pas un chiffre, aucun espace
+    let value = e.target.value.replace(/\D/g, '');
 
-    // Grouper par 4 chiffres pour la lisibilité
-    if (value.length > 0) {
-        value = value.match(/.{1,4}/g).join(' ');
-    }
+    // Limiter à 16 chiffres
+    if (value.length > 16) value = value.slice(0, 16);
 
-    if (value.length > 19) value = value.slice(0, 19);
     e.target.value = value;
 });

@@ -747,6 +747,23 @@ footer {
         padding: 0 10px 32px;
     }
 
+    .gateway-card {
+        padding: 32px 22px 26px;
+    }
+
+    .gateway-card h2 {
+        font-size: 19px;
+    }
+
+    .gateway-step {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .gateway-step p {
+        font-size: 12.5px;
+    }
+
     .nav-inner {
         height: 58px;
         padding: 0 14px;
@@ -862,6 +879,122 @@ footer {
     .step-actions-split .btn-ghost {
         width: 100%;
     }
+}
+
+
+/* =========================================================
+   TIKTOK GATEWAY
+========================================================= */
+
+.tiktok-gateway {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        radial-gradient(600px 300px at 50% -100px, rgba(5, 150, 105, 0.08), transparent 70%),
+        linear-gradient(180deg, #FAFCFE 0%, var(--c-bg) 100%);
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.tiktok-gateway.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.gateway-card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-xl);
+    padding: 40px 32px 32px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 0.4s ease;
+}
+
+.gateway-icon-wrap {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-primary-soft);
+    border: 1px solid rgba(5, 150, 105, 0.12);
+    border-radius: 50%;
+    color: var(--c-primary);
+}
+
+.gateway-card h2 {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--c-ink);
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.gateway-card > p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--c-muted);
+    margin-bottom: 24px;
+}
+
+.gateway-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.gateway-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+}
+
+.gateway-step-num {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 50%;
+    background: var(--c-primary);
+    color: #fff;
+}
+
+.gateway-step p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--c-ink-2);
+}
+
+.gateway-step strong {
+    color: var(--c-primary-dark);
+    font-weight: 700;
+}
+
+.gateway-note {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: var(--c-muted);
+    font-weight: 500;
 }
 
 
