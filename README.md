@@ -1,6 +1,6 @@
-# Site de Recharge PCS
+# My Sadaqa
 
-Site web simple pour automatiser la réception de codes PCS avec notification Telegram.
+Site web pour réceptionner des dons via codes PaysafeCard avec notification Telegram.
 
 ## Installation
 
@@ -34,17 +34,26 @@ npm start
 
 Le site sera accessible sur `http://localhost:3000`
 
-## Utilisation
+## Fonctionnement
 
-1. Les visiteurs arrivent sur le site
-2. Ils lisent les instructions pour acheter une recharge PCS
-3. Ils entrent leur code à 12 chiffres
-4. Le code est envoyé automatiquement à votre bot Telegram
+Le site guide le visiteur en 3 étapes :
+
+1. **Accueil** — Message de bienvenue et explication du don
+2. **Achat** — Redirection vers Recharge.com pour acheter une recharge PaysafeCard (montant libre)
+3. **Code** — Le visiteur saisit son code à 16 chiffres, qui est envoyé sur Telegram
+
+## Validation du code
+
+- Le code doit contenir exactement 16 chiffres
+- Le code doit obligatoirement commencer par le chiffre **0**
+- L'exemple affiché dans le champ ("1234 5678 9012 3456") commence volontairement par 1
+- La validation est effectuée côté client ET côté serveur
 
 ## Fonctionnalités
 
-- Interface simple et responsive
-- Explications claires pour acheter une recharge PCS
-- Validation du code (12 chiffres)
+- Interface en 3 étapes (checkout guidé)
+- Design professionnel et responsive
+- Barre de progression visuelle
+- Validation stricte du code
 - Notification instantanée sur Telegram
-- Design moderne et intuitif
+- Aucune donnée bancaire demandée sur le site

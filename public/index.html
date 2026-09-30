@@ -3,101 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Sadaqa</title>
+    <title>My Sadaqa — Faire un don</title>
+    <meta name="description" content="Soutenez la création de contenu musulman. Faites votre sadaqa en toute simplicité.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav class="navbar">
         <div class="nav-inner">
             <div class="brand">
-                <span class="brand-sub">My</span><span class="brand-pcs">Sadaqa</span>
+                <span class="brand-mark">MS</span>
+                <span class="brand-text">My Sadaqa</span>
             </div>
-            <a href="https://www.recharge.fr/carte-pcs" target="_blank" class="nav-cta">Recharger</a>
+            <div class="nav-trust">
+                <span class="trust-dot"></span>
+                <span>Paiement sécurisé</span>
+            </div>
         </div>
     </nav>
 
     <div class="container">
-        <header>
-            <p class="salam">As-salamu alaykum wa rahmatullahi wa barakatuh</p>
-            <h1>Faire une Sadaqa</h1>
-            <p class="subtitle">BaarakaAllahu fik pour votre générosité</p>
-        </header>
 
-        <section class="intro">
-            <div class="intro-content">
-                <p class="intro-text">
-                    Si vous êtes arrivé jusqu’ici, c’est probablement après avoir découvert l’une de mes vidéos. Je tiens avant tout à vous remercier pour votre présence, votre soutien et l’intention sincère qui vous amène sur cette page. Qu’Allah vous récompense pour votre générosité et mette la baraka dans vos biens.
+        <!-- Progress bar -->
+        <div class="progress-bar">
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="progress-step active" data-step="1">
+                    <span class="step-num">1</span>
+                    <span class="step-label">Accueil</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <span class="step-num">2</span>
+                    <span class="step-label">Achat</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <span class="step-num">3</span>
+                    <span class="step-label">Code</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== STEP 1: WELCOME ===================== -->
+        <section class="step-section active" id="step1">
+            <div class="hero">
+                <div class="hero-badge">As-salamu alaykum</div>
+                <h1>Merci d'être ici<span class="hero-dot">.</span></h1>
+                <p class="hero-subtitle">
+                    Si vous êtes arrivé sur cette page, c'est probablement après avoir vu l'une de mes vidéos.
+                    Qu'Allah vous récompense pour votre intention sincère et mette la baraka dans vos biens.
                 </p>
-                <p class="intro-text">
-                    Pourquoi utiliser une recharge PCS ?
-Étant moi-même équipé d’une carte PCS, c’est actuellement le moyen le plus simple et le plus rapide pour recevoir votre contribution et pouvoir en disposer immédiatement.
-    
-                </p>
-                <p class="intro-text">
-                    Vous trouverez ci-dessous les différentes étapes pour effectuer votre sadaqa simplement.
-                </p>
+            </div>
+
+            <div class="card-list">
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <div class="info-card-body">
+                        <h3>Pourquoi votre don compte</h3>
+                        <p>Votre soutien me permet de continuer à produire du contenu bénéfique pour la communauté. Chaque contribution, petite ou grande, a un impact réel.</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    </div>
+                    <div class="info-card-body">
+                        <h3>PaysafeCard — simple et sécurisé</h3>
+                        <p>PaysafeCard est une carte prépayée anonyme. Vous achetez un code avec un montant libre, sans compte bancaire requis. C'est le moyen le plus rapide pour nous envoyer votre don.</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="info-card-body">
+                        <h3>100% sûr</h3>
+                        <p>Votre code est envoyé de manière sécurisée et traité immédiatement. Aucune donnée bancaire n'est demandée sur ce site.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-actions">
+                <button class="btn-primary btn-large" onclick="goToStep(2)">
+                    Continuer
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
             </div>
         </section>
 
-        <section class="instructions">
-            <h2>Comment participer ?</h2>
+        <!-- ===================== STEP 2: BUY ===================== -->
+        <section class="step-section" id="step2">
+            <div class="step-header">
+                <h2>Achetez votre recharge PaysafeCard</h2>
+                <p>Choisissez un montant libre et payez en toute sécurité sur Recharge.com. Vous recevrez votre code immédiatement par e-mail.</p>
+            </div>
 
-            <div class="method recommended">
-                <div class="method-icon">💳</div>
-                <div class="method-content">
-                    <div class="recommendation-badge">Recommandé</div>
-                    <h3>Option 1: En ligne (CB) </h3>
-                    <p>Le plus simple et rapide. Cliquez sur <a href="https://www.recharge.fr/carte-pcs" target="_blank" rel="noopener noreferrer">recharge.fr</a> et achetez une recharge PCS avec votre carte bancaire. Mettez pays d'utilisation France même si vous êtes d'un autre pays. Instantané et sans déplacement.</p>
-                
+            <div class="buy-process">
+                <div class="process-timeline">
+                    <div class="process-item">
+                        <div class="process-number">1</div>
+                        <div class="process-body">
+                            <h4>Rendez-vous sur Recharge.com</h4>
+                            <p>Cliquez sur le bouton ci-dessous pour accéder à la catégorie PaysafeCard.</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-number">2</div>
+                        <div class="process-body">
+                            <h4>Choisissez votre montant</h4>
+                            <p>Entrez le montant de votre choix — il est totalement libre. Que ce soit 5€, 10€, 50€ ou plus, chaque don compte.</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-number">3</div>
+                        <div class="process-body">
+                            <h4>Payez en ligne</h4>
+                            <p>Réglez avec votre carte bancaire. Le code vous est envoyé instantanément par e-mail.</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-number">4</div>
+                        <div class="process-body">
+                            <h4>Revenez ici</h4>
+                            <p>Une fois votre code reçu, revenez sur cette page pour nous l'envoyer. C'est la dernière étape !</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="method">
-                <div class="method-icon">🏪</div>
-                <div class="method-content">
-                    <h3>Option 2 : Bureau de tabac (espèces)</h3>
-                    <p>Allez dans un bureau de tabac et demandez une recharge PCS. Payez en espèces. Pratique si vous préférez les espèces.</p>
-                </div>
+            <div class="external-cta">
+                <a href="https://www.recharge.com/fr/fr/paysafecard" target="_blank" rel="noopener noreferrer" class="btn-primary btn-large btn-external" id="buyButton">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    Acheter sur Recharge.com
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <p class="external-note">Vous serez redirigé vers Recharge.com dans un nouvel onglet.</p>
             </div>
 
-            <div class="steps">
-                <h3>Étapes à suivre :</h3>
-                <ol>
-                    <li>Achetez une recharge PCS (20€, 50€, 100€, 150€, etc.)</li>
-                    <li>Vous recevrez un code</li>
-                    <li>Entrez ce code ci-dessous</li>
-                    <li>Cliquez sur "Envoyer"</li>
-                </ol>
+            <div class="step-actions step-actions-split">
+                <button class="btn-ghost" onclick="goToStep(1)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Retour
+                </button>
+                <button class="btn-primary btn-large" onclick="goToStep(3)">
+                    J'ai mon code
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
             </div>
         </section>
 
-        <section class="form-section">
-            <h2>Entrez votre code PCS</h2>
-            <form id="codeForm">
-                <div class="form-group">
-                    <label for="code">Code PCS :</label>
-                    <input
-                        type="text"
-                        id="code"
-                        name="code"
-                        placeholder="Ex: B1C29A1F547"
-                        maxlength="10"
-                        minlength="10"
-                        pattern="[Mm][A-Za-z0-9]{9,11}"
-                        required
-                    >
-                </div>
-                <button type="submit" class="submit-btn">Envoyer le code</button>
-            </form>
-            <div id="message" class="message"></div>
+        <!-- ===================== STEP 3: ENTER CODE ===================== -->
+        <section class="step-section" id="step3">
+            <div class="step-header">
+                <h2>Envoyez votre code</h2>
+                <p>Entrez le code PaysafeCard que vous avez reçu par e-mail. Il sera envoyé immédiatement et traité dans les plus brefs délais.</p>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="codeForm">
+                    <div class="form-group">
+                        <label for="code">Votre code PaysafeCard</label>
+                        <div class="input-wrap">
+                            <input
+                                type="text"
+                                id="code"
+                                name="code"
+                                placeholder="Ex: 1234 5678 9012 3456"
+                                maxlength="16"
+                                autocomplete="off"
+                                spellcheck="false"
+                                required
+                            >
+                            <div class="input-badge">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                        </div>
+                        <p class="input-hint">Saisissez les 16 chiffres de votre code PaysafeCard.</p>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-large btn-block" id="submitBtn">
+                        <span class="btn-label">Envoyer mon don</span>
+                        <span class="btn-loading" aria-hidden="true">
+                            <span class="spinner"></span>
+                            Envoi en cours...
+                        </span>
+                    </button>
+                </form>
+
+                <div id="message" class="message"></div>
+            </div>
+
+            <div class="step-actions">
+                <button class="btn-ghost" onclick="goToStep(2)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Retour
+                </button>
+            </div>
         </section>
 
         <footer>
-            <p>JazakAllahu khayran pour votre soutien. Qu'Allah vous récompense</p>
+            <p class="footer-dua">JazakAllahu khayran pour votre soutien.</p>
+            <p class="footer-sub">Qu'Allah vous récompense pour votre générosité.</p>
         </footer>
+
     </div>
 
     <script src="script.js"></script>

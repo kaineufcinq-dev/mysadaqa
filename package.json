@@ -1,7 +1,7 @@
 {
-  "name": "pcs-recharge-site",
-  "version": "1.0.0",
-  "description": "Site pour automatiser la réception de codes PCS",
+  "name": "my-sadaqa",
+  "version": "2.0.0",
+  "description": "Site de dons via PaysafeCard avec notification Telegram",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"

