@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Sadaqa — Faire un don</title>
+    <title>My Sadaqa - Faire un don</title>
     <meta name="description" content="Soutenez la création de contenu musulman. Faites votre sadaqa en toute simplicité.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,40 +12,32 @@
 </head>
 <body>
 
-    <!-- TikTok Gateway -->
-    <div class="tiktok-gateway" id="tiktokGateway">
-        <div class="gateway-card">
-            <div class="gateway-icon-wrap">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="12" y1="8" x2="12" y2="12"/>
-                    <line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
+    <!-- TikTok in-app browser gateway -->
+    <div class="tt-gateway" id="ttGateway">
+        <div class="tt-card">
+            <div class="tt-icon-wrap">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
-            <h2>Ouvrez ce lien dans votre navigateur</h2>
-            <p>TikTok ne peut pas ouvrir les pages web directement. Pour accéder au site, suivez ces étapes :</p>
-
-            <div class="gateway-steps">
-                <div class="gateway-step">
-                    <span class="gateway-step-num">1</span>
-                    <p>Cliquez sur les <strong>trois petits points</strong> en haut à droite de cette page</p>
+            <h2>Pour envoyer votre don, ouvrez ce lien dans votre navigateur</h2>
+            <p>Le navigateur TikTok bloque l'ouverture des sites externes. Voici comment faire :</p>
+            <div class="tt-steps">
+                <div class="tt-step">
+                    <span class="tt-step-num">1</span>
+                    <p>Touchez les <strong>trois points</strong> en haut à droite</p>
                 </div>
-                <div class="gateway-step">
-                    <span class="gateway-step-num">2</span>
-                    <p>Sélectionnez <strong>« Ouvrir dans le navigateur »</strong></p>
-                </div>
-                <div class="gateway-step">
-                    <span class="gateway-step-num">3</span>
-                    <p>Le site s'ouvrira et vous pourrez faire votre don</p>
+                <div class="tt-step">
+                    <span class="tt-step-num">2</span>
+                    <p>Choisissez <strong>Ouvrir dans le navigateur</strong></p>
                 </div>
             </div>
-
-            <button class="btn-primary btn-large btn-block" onclick="closeGateway()">
-                J'ai compris, continuer
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-
-            <p class="gateway-note">As-salamu alaykum, qu'Allah vous récompense pour votre intention.</p>
+            <div class="tt-copy-row">
+                <input type="text" id="ttCopyInput" readonly value="">
+                <button class="tt-copy-btn" id="ttCopyBtn" onclick="copyLink()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copier le lien
+                </button>
+            </div>
+            <p class="tt-note" id="ttCopyMsg" style="display:none;">Lien copié. Collez-le dans votre navigateur.</p>
         </div>
     </div>
 
@@ -85,14 +77,14 @@
             </div>
         </div>
 
-        <!-- ===================== STEP 1: WELCOME ===================== -->
+        <!-- STEP 1: WELCOME -->
         <section class="step-section active" id="step1">
             <div class="hero">
                 <div class="hero-badge">As-salamu alaykum</div>
                 <h1>Merci d'être ici<span class="hero-dot">.</span></h1>
                 <p class="hero-subtitle">
-                    Si vous êtes arrivé sur cette page, c'est probablement après avoir vu l'une de mes vidéos.
-                    Qu'Allah vous récompense pour votre intention sincère et mette la baraka dans vos biens.
+                    Si vous êtes arrivé ici, c'est sans doute après avoir vu une de mes vidéos.
+                    Qu'Allah vous récompense pour votre intention et mette la baraka dans vos biens.
                 </p>
             </div>
 
@@ -112,8 +104,8 @@
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                     </div>
                     <div class="info-card-body">
-                        <h3>PaysafeCard — simple et sécurisé</h3>
-                        <p>PaysafeCard est une carte prépayée anonyme. Vous achetez un code avec un montant libre, sans compte bancaire requis. C'est le moyen le plus rapide pour nous envoyer votre don.</p>
+                        <h3>PaysafeCard, simple et sécurisé</h3>
+                        <p>Une carte prépayée anonyme. Vous achetez un code avec le montant que vous voulez, sans compte bancaire. Le moyen le plus rapide pour envoyer votre don.</p>
                     </div>
                 </div>
 
@@ -123,7 +115,7 @@
                     </div>
                     <div class="info-card-body">
                         <h3>100% sûr</h3>
-                        <p>Votre code est envoyé de manière sécurisée et traité immédiatement. Aucune donnée bancaire n'est demandée sur ce site.</p>
+                        <p>Votre code est envoyé de façon sécurisée et traité tout de suite. Aucune donnée bancaire n'est demandée sur ce site.</p>
                     </div>
                 </div>
             </div>
@@ -136,43 +128,34 @@
             </div>
         </section>
 
-        <!-- ===================== STEP 2: BUY ===================== -->
+        <!-- STEP 2: BUY -->
         <section class="step-section" id="step2">
             <div class="step-header">
-                <h2>Achetez votre recharge PaysafeCard</h2>
-                <p>Choisissez un montant libre et payez en toute sécurité sur Recharge.com. Vous recevrez votre code immédiatement par e-mail.</p>
+                <h2>Achetez votre code PaysafeCard</h2>
+                <p>Choisissez le montant que vous voulez et payez sur Recharge.com. Vous recevrez votre code par e-mail dans la minute.</p>
             </div>
 
-            <div class="buy-process">
-                <div class="process-timeline">
-                    <div class="process-item">
-                        <div class="process-number">1</div>
-                        <div class="process-body">
-                            <h4>Rendez-vous sur Recharge.com</h4>
-                            <p>Cliquez sur le bouton ci-dessous pour accéder à la catégorie PaysafeCard.</p>
-                        </div>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-number">2</div>
-                        <div class="process-body">
-                            <h4>Choisissez votre montant</h4>
-                            <p>Entrez le montant de votre choix — il est totalement libre. Que ce soit 5€, 10€, 50€ ou plus, chaque don compte.</p>
-                        </div>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-number">3</div>
-                        <div class="process-body">
-                            <h4>Payez en ligne</h4>
-                            <p>Réglez avec votre carte bancaire. Le code vous est envoyé instantanément par e-mail.</p>
-                        </div>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-number">4</div>
-                        <div class="process-body">
-                            <h4>Revenez ici</h4>
-                            <p>Une fois votre code reçu, revenez sur cette page pour nous l'envoyer. C'est la dernière étape !</p>
-                        </div>
-                    </div>
+            <div class="amount-chips">
+                <button class="amount-chip" onclick="selectAmount(this, 5)">5 €</button>
+                <button class="amount-chip" onclick="selectAmount(this, 10)">10 €</button>
+                <button class="amount-chip" onclick="selectAmount(this, 25)">25 €</button>
+                <button class="amount-chip" onclick="selectAmount(this, 50)">50 €</button>
+                <button class="amount-chip" onclick="selectAmount(this, 100)">100 €</button>
+                <button class="amount-chip amount-chip-other" onclick="selectAmount(this, 0)">Autre</button>
+            </div>
+
+            <div class="buy-steps">
+                <div class="buy-step">
+                    <div class="buy-step-num">1</div>
+                    <p>Cliquez sur le bouton ci-dessous pour aller sur Recharge.com</p>
+                </div>
+                <div class="buy-step">
+                    <div class="buy-step-num">2</div>
+                    <p>Payez avec votre carte. Le code arrive par e-mail tout de suite.</p>
+                </div>
+                <div class="buy-step">
+                    <div class="buy-step-num">3</div>
+                    <p>Revenez ici et envoyez-nous le code. C'est tout.</p>
                 </div>
             </div>
 
@@ -182,7 +165,7 @@
                     Acheter sur Recharge.com
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </a>
-                <p class="external-note">Vous serez redirigé vers Recharge.com dans un nouvel onglet.</p>
+                <p class="external-note">Recharge.com s'ouvre dans un nouvel onglet.</p>
             </div>
 
             <div class="step-actions step-actions-split">
@@ -197,11 +180,11 @@
             </div>
         </section>
 
-        <!-- ===================== STEP 3: ENTER CODE ===================== -->
+        <!-- STEP 3: ENTER CODE -->
         <section class="step-section" id="step3">
             <div class="step-header">
                 <h2>Envoyez votre code</h2>
-                <p>Entrez le code PaysafeCard que vous avez reçu par e-mail. Il sera envoyé immédiatement et traité dans les plus brefs délais.</p>
+                <p>Entrez le code à 16 chiffres que vous avez reçu par e-mail. Il sera envoyé tout de suite.</p>
             </div>
 
             <div class="form-wrapper">
@@ -213,7 +196,7 @@
                                 type="text"
                                 id="code"
                                 name="code"
-                                placeholder="Ex: 1234567890123456"
+                                placeholder="1234567890123456"
                                 maxlength="16"
                                 autocomplete="off"
                                 spellcheck="false"
@@ -223,7 +206,7 @@
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                             </div>
                         </div>
-                        <p class="input-hint">Saisissez les 16 chiffres de votre code, sans espaces.</p>
+                        <p class="input-hint">Les 16 chiffres de votre code, sans espaces.</p>
                     </div>
 
                     <button type="submit" class="btn-primary btn-large btn-block" id="submitBtn">
