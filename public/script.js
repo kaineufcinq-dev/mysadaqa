@@ -53,10 +53,6 @@ function copyLink() {
 
 
 /* =========================================================
-   AMOUNT SELECTION
-========================================================= */
-
-/* =========================================================
    STEP NAVIGATION
 ========================================================= */
 
@@ -132,9 +128,10 @@ document.getElementById('codeForm').addEventListener('submit', async function (e
         var data = await response.json();
 
         if (response.ok) {
-            messageDiv.textContent = data.message || 'Code envoyé. BaarakaAllahu fik pour votre don.';
+            messageDiv.innerHTML = '<div class="success-check"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><p class="success-title">BaarakaAllahu fik !</p><p class="success-sub">Votre don a bien été envoyé. Qu\'Allah l\'accepte et vous récompense.</p>';
             messageDiv.className = 'message success';
             document.getElementById('code').value = '';
+            launchConfetti();
         } else {
             messageDiv.textContent = data.error || 'Erreur lors de l\'envoi. Veuillez réessayer.';
             messageDiv.className = 'message error';
@@ -147,6 +144,56 @@ document.getElementById('codeForm').addEventListener('submit', async function (e
         submitBtn.disabled = false;
     }
 });
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function launchConfetti() {
+    var colors = ['#2563EB', '#3B82F6', '#60A5FA', '#0EA5E9', '#93C5FD'];
+    var container = document.createElement('div');
+    container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;overflow:hidden;';
+    document.body.appendChild(container);
+
+    for (var i = 0; i < 60; i++) {
+        (function (idx) {
+            var piece = document.createElement('div');
+            var size = 6 + Math.random() * 8;
+            var left = Math.random() * 100;
+            var delay = Math.random() * 0.3;
+            var duration = 1.5 + Math.random() * 1.5;
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            var rotate = Math.random() * 360;
+
+            piece.style.cssText =
+                'position:absolute;' +
+                'top:-20px;' +
+                'left:' + left + '%;' +
+                'width:' + size + 'px;' +
+                'height:' + (size * 0.4) + 'px;' +
+                'background:' + color + ';' +
+                'border-radius:2px;' +
+                'transform:rotate(' + rotate + 'deg);' +
+                'opacity:1;' +
+                'animation:confettiFall ' + duration + 's ease-in ' + delay + 's forwards;';
+
+            container.appendChild(piece);
+        })(i);
+    }
+
+    var style = document.createElement('style');
+    style.textContent =
+        '@keyframes confettiFall {' +
+        'to { transform: translateY(105vh) rotate(720deg); opacity: 0; }' +
+        '}';
+    document.head.appendChild(style);
+
+    setTimeout(function () {
+        container.remove();
+        style.remove();
+    }, 3500);
+}
 
 
 /* =========================================================

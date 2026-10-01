@@ -8,9 +8,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 :root {
     --c-primary: #2563EB;
@@ -29,10 +27,6 @@ html {
     --c-error: #DC2626;
     --c-error-bg: #FEF2F2;
     --c-error-border: #FECACA;
-
-    --c-warning: #D97706;
-    --c-warning-bg: #FFFBEB;
-    --c-warning-border: #FDE68A;
 
     --c-ink: #0F172A;
     --c-ink-2: #1E293B;
@@ -56,8 +50,6 @@ html {
     --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
     --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.10);
     --shadow-primary: 0 8px 24px rgba(37, 99, 235, 0.18);
-
-    --space: 8px;
 }
 
 body {
@@ -101,11 +93,7 @@ body {
     justify-content: space-between;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.brand { display: flex; align-items: center; gap: 10px; }
 
 .brand-mark {
     width: 36px;
@@ -174,9 +162,7 @@ body {
    PROGRESS BAR
 ========================================================= */
 
-.progress-bar {
-    padding: 28px 32px 0;
-}
+.progress-bar { padding: 28px 32px 0; }
 
 .progress-track {
     height: 4px;
@@ -264,12 +250,12 @@ body {
 
 
 /* =========================================================
-   HERO (Step 1)
+   HERO
 ========================================================= */
 
 .hero {
     text-align: center;
-    padding: 8px 0 28px;
+    padding: 8px 0 20px;
 }
 
 .hero-badge {
@@ -303,6 +289,30 @@ body {
     line-height: 1.7;
     color: var(--c-muted);
 }
+
+
+/* =========================================================
+   TRUST ROW
+========================================================= */
+
+.trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 0 24px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-muted);
+}
+
+.trust-item svg { color: var(--c-primary); }
 
 
 /* =========================================================
@@ -387,7 +397,7 @@ body {
 
 
 /* =========================================================
-   BUY STEPS (compact)
+   BUY STEPS
 ========================================================= */
 
 .buy-steps {
@@ -562,6 +572,15 @@ body {
 .btn-block { width: 100%; }
 .btn-external { display: inline-flex; }
 
+.btn-pulse {
+    animation: btnPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+    0%, 100% { box-shadow: var(--shadow-primary); }
+    50% { box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35), 0 0 0 6px rgba(37, 99, 235, 0.08); }
+}
+
 .btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -590,12 +609,7 @@ body {
    BUTTON LOADING STATE
 ========================================================= */
 
-.btn-loading {
-    display: none;
-    align-items: center;
-    gap: 8px;
-}
-
+.btn-loading { display: none; align-items: center; gap: 8px; }
 .btn-primary.loading .btn-label { display: none; }
 .btn-primary.loading .btn-loading { display: inline-flex; }
 
@@ -627,8 +641,8 @@ body {
 
 
 /* =========================================================
-   MESSAGE
-======================================================== */
+   MESSAGE + SUCCESS STATE
+========================================================= */
 
 .message {
     margin-top: 18px;
@@ -642,13 +656,6 @@ body {
     animation: fadeInUp 0.3s ease;
 }
 
-.message.success {
-    display: block;
-    color: #065F46;
-    background: var(--c-success-bg);
-    border: 1px solid var(--c-success-border);
-}
-
 .message.error {
     display: block;
     color: #991B1B;
@@ -656,10 +663,49 @@ body {
     border: 1px solid var(--c-error-border);
 }
 
+.message.success {
+    display: block;
+    background: var(--c-success-bg);
+    border: 1px solid var(--c-success-border);
+    padding: 28px 20px;
+}
+
+.success-check {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-success);
+    color: #fff;
+    border-radius: 50%;
+    animation: checkPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes checkPop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.success-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #065F46;
+    margin-bottom: 6px;
+}
+
+.success-sub {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--c-muted);
+    line-height: 1.55;
+}
+
 
 /* =========================================================
    FOOTER
-======================================================== */
+========================================================= */
 
 footer {
     text-align: center;
@@ -682,7 +728,7 @@ footer {
 
 /* =========================================================
    TIKTOK GATEWAY
-======================================================== */
+========================================================= */
 
 .tt-gateway {
     position: fixed;
@@ -837,7 +883,7 @@ footer {
 
 /* =========================================================
    RESPONSIVE - TABLET
-======================================================== */
+========================================================= */
 
 @media (max-width: 768px) {
     body { padding: 0 12px 36px; }
@@ -850,27 +896,14 @@ footer {
 
 /* =========================================================
    RESPONSIVE - MOBILE
-======================================================== */
+========================================================= */
 
 @media (max-width: 600px) {
-    body {
-        padding: 0 8px 28px;
-        font-size: 14px;
-    }
+    body { padding: 0 8px 28px; font-size: 14px; }
 
-    .nav-inner {
-        height: 56px;
-        padding: 0 14px;
-    }
-
+    .nav-inner { height: 56px; padding: 0 14px; }
     .nav-trust span:last-child { display: none; }
-
-    .brand-mark {
-        width: 32px;
-        height: 32px;
-        font-size: 12px;
-    }
-
+    .brand-mark { width: 32px; height: 32px; font-size: 12px; }
     .brand-text { font-size: 16px; }
 
     .container {
@@ -884,32 +917,17 @@ footer {
     .progress-steps { margin-top: 10px; gap: 4px; }
     .step-section { padding: 22px 18px 24px; }
 
-    .hero { padding: 4px 0 22px; }
+    .hero { padding: 4px 0 18px; }
     .hero h1 { font-size: 24px; }
     .hero-subtitle { font-size: 13.5px; line-height: 1.65; }
-    .hero-badge {
-        font-size: 11px;
-        padding: 5px 13px;
-        margin-bottom: 14px;
-    }
+    .hero-badge { font-size: 11px; padding: 5px 13px; margin-bottom: 14px; }
 
-    .card-list {
-        gap: 10px;
-        margin-bottom: 24px;
-    }
+    .trust-row { gap: 14px; padding-bottom: 20px; }
+    .trust-item { font-size: 11px; }
 
-    .info-card {
-        padding: 16px;
-        gap: 13px;
-        border-radius: var(--r-sm);
-    }
-
-    .info-card-icon {
-        flex: 0 0 40px;
-        width: 40px;
-        height: 40px;
-    }
-
+    .card-list { gap: 10px; margin-bottom: 24px; }
+    .info-card { padding: 16px; gap: 13px; border-radius: var(--r-sm); }
+    .info-card-icon { flex: 0 0 40px; width: 40px; height: 40px; }
     .info-card-icon svg { width: 22px; height: 22px; }
     .info-card-body h3 { font-size: 14px; }
     .info-card-body p { font-size: 12.5px; line-height: 1.55; }
@@ -919,30 +937,14 @@ footer {
     .step-header p { font-size: 13px; line-height: 1.6; }
 
     .buy-steps { gap: 8px; margin-bottom: 20px; }
-    .buy-step {
-        padding: 12px 14px;
-        gap: 12px;
-    }
+    .buy-step { padding: 12px 14px; gap: 12px; }
     .buy-step p { font-size: 12.5px; }
 
     .form-wrapper { margin-bottom: 24px; }
-    .form-group input {
-        height: 52px;
-        font-size: 15px;
-        letter-spacing: 1.5px;
-    }
+    .form-group input { height: 52px; font-size: 15px; letter-spacing: 1.5px; }
 
-    .btn-large {
-        height: 52px;
-        font-size: 14px;
-        padding: 0 22px;
-    }
-
-    .btn-ghost {
-        height: 44px;
-        padding: 0 16px;
-        font-size: 13px;
-    }
+    .btn-large { height: 52px; font-size: 14px; padding: 0 22px; }
+    .btn-ghost { height: 44px; padding: 0 16px; font-size: 13px; }
 
     .step-label { display: none; }
     .step-actions { gap: 10px; }
@@ -952,39 +954,26 @@ footer {
     .footer-dua { font-size: 12.5px; }
     .footer-sub { font-size: 11.5px; }
 
-    .message {
-        padding: 12px 16px;
-        font-size: 12.5px;
-    }
+    .message { padding: 12px 16px; font-size: 12.5px; }
+    .message.success { padding: 22px 16px; }
+    .success-title { font-size: 16px; }
+    .success-sub { font-size: 12.5px; }
 
-    .tt-card {
-        padding: 28px 20px 22px;
-    }
-
+    .tt-card { padding: 28px 20px 22px; }
     .tt-card h2 { font-size: 17px; }
     .tt-card > p { font-size: 13px; }
-
-    .tt-step {
-        padding: 11px 13px;
-        gap: 11px;
-    }
-
+    .tt-step { padding: 11px 13px; gap: 11px; }
     .tt-step p { font-size: 12.5px; }
 }
 
 
 /* =========================================================
    RESPONSIVE - VERY SMALL PHONES
-======================================================== */
+========================================================= */
 
 @media (max-width: 380px) {
     body { padding: 0 4px 20px; }
-
-    .container {
-        margin-top: 10px;
-        border-radius: var(--r-md);
-    }
-
+    .container { margin-top: 10px; border-radius: var(--r-md); }
     .progress-bar { padding: 18px 14px 0; }
     .step-section { padding: 18px 14px 20px; }
 
@@ -992,31 +981,25 @@ footer {
     .hero-subtitle { font-size: 13px; }
     .step-header h2 { font-size: 19px; }
 
+    .trust-row { gap: 10px; }
+
     .info-card { padding: 14px; gap: 11px; }
-    .info-card-icon {
-        flex: 0 0 36px;
-        width: 36px;
-        height: 36px;
-    }
+    .info-card-icon { flex: 0 0 36px; width: 36px; height: 36px; }
     .info-card-body h3 { font-size: 13px; }
     .info-card-body p { font-size: 12px; }
 
     .btn-primary svg, .btn-ghost svg { flex-shrink: 0; }
-
     .step-actions-split { flex-direction: column-reverse; }
     .step-actions-split .btn-primary,
     .step-actions-split .btn-ghost { width: 100%; }
 
-    .form-group input {
-        font-size: 14px;
-        letter-spacing: 1px;
-    }
+    .form-group input { font-size: 14px; letter-spacing: 1px; }
 }
 
 
 /* =========================================================
    REDUCED MOTION
-======================================================== */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
