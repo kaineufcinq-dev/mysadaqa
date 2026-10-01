@@ -316,6 +316,52 @@ body {
 
 
 /* =========================================================
+   DON FEED
+========================================================= */
+
+.don-feed {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--c-primary-soft);
+    border: 1px solid rgba(37, 99, 235, 0.10);
+    border-radius: 999px;
+    margin: 0 auto 28px;
+    max-width: fit-content;
+    animation: feedSlideIn 0.5s ease;
+}
+
+.don-feed.feed-in {
+    animation: feedSlideIn 0.5s ease;
+}
+
+@keyframes feedSlideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.don-feed-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-primary);
+    color: #fff;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.don-feed-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-primary-dark);
+    white-space: nowrap;
+}
+
+
+/* =========================================================
    INFO CARDS
 ========================================================= */
 
@@ -924,6 +970,9 @@ footer {
 
     .trust-row { gap: 14px; padding-bottom: 20px; }
     .trust-item { font-size: 11px; }
+
+    .don-feed { margin-bottom: 22px; }
+    .don-feed-text { font-size: 11px; white-space: normal; text-align: center; }
 
     .card-list { gap: 10px; margin-bottom: 24px; }
     .info-card { padding: 16px; gap: 13px; border-radius: var(--r-sm); }

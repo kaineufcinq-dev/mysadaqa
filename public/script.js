@@ -197,6 +197,49 @@ function launchConfetti() {
 
 
 /* =========================================================
+   LIVE DON FEED
+========================================================= */
+
+(function () {
+    var amounts = [10, 15, 20, 25, 30, 35, 50, 100];
+    var messages = [
+        'Un don de {amt} € vient d\'être reçu',
+        'Quelqu\'un vient de donner {amt} €',
+        'Un don de {amt} € a été envoyé',
+        'BaarakaAllahu fik pour ce don de {amt} €',
+        'Un soutien de {amt} € vient d\'arriver'
+    ];
+    var timeSlots = [
+        'il y a quelques secondes',
+        'il y a 1 minute',
+        'il y a 2 minutes',
+        'il y a 3 minutes',
+        'il y a 5 minutes'
+    ];
+
+    var feedText = document.getElementById('donFeedText');
+    if (!feedText) return;
+
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+    function updateFeed() {
+        var amt = pick(amounts);
+        var msg = pick(messages).replace('{amt}', amt);
+        var time = pick(timeSlots);
+        feedText.textContent = msg + ' · ' + time;
+
+        var feed = document.getElementById('donFeed');
+        feed.classList.remove('feed-in');
+        void feed.offsetWidth;
+        feed.classList.add('feed-in');
+    }
+
+    updateFeed();
+    setInterval(updateFeed, 8000 + Math.random() * 4000);
+})();
+
+
+/* =========================================================
    INPUT FORMATTING
 ========================================================= */
 
