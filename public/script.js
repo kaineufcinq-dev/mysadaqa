@@ -235,7 +235,7 @@ function launchConfetti() {
     }
 
     updateFeed();
-    setInterval(updateFeed, 8000 + Math.random() * 4000);
+    setInterval(updateFeed, 3500 + Math.random() * 2000);
 })();
 
 

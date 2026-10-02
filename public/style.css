@@ -290,6 +290,13 @@ body {
     color: var(--c-muted);
 }
 
+.hero-subtitle-2 {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--c-muted-2);
+    line-height: 1.65;
+}
+
 
 /* =========================================================
    TRUST ROW
