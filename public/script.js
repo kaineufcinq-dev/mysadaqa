@@ -240,6 +240,42 @@ function launchConfetti() {
 
 
 /* =========================================================
+   GOAL COUNTER ANIMATION
+========================================================= */
+
+(function () {
+    var baseRaised = 3280;
+    var baseDonors = 127;
+    var goalTarget = 5000;
+
+    var raisedEl = document.getElementById('goalRaised');
+    var barEl = document.getElementById('goalBarFill');
+    var donorEl = document.getElementById('donorCount');
+    var finalDonorEl = document.getElementById('finalDonorCount');
+
+    function fmt(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
+    setInterval(function () {
+        if (Math.random() < 0.35) {
+            var add = [5, 10, 10, 15, 20, 25, 25, 50][Math.floor(Math.random() * 8)];
+            baseRaised += add;
+            baseDonors += 1;
+
+            if (raisedEl) raisedEl.textContent = fmt(baseRaised) + ' €';
+            if (barEl) {
+                var pct = Math.min(100, (baseRaised / goalTarget) * 100);
+                barEl.style.width = pct + '%';
+            }
+            if (donorEl) donorEl.textContent = baseDonors;
+            if (finalDonorEl) finalDonorEl.textContent = baseDonors;
+        }
+    }, 4000);
+})();
+
+
+/* =========================================================
    INPUT FORMATTING
 ========================================================= */
 
