@@ -240,6 +240,100 @@ function launchConfetti() {
 
 
 /* =========================================================
+   HERO VIDEO FALLBACK
+========================================================= */
+
+(function () {
+    var video = document.getElementById('heroVideo');
+    var wrap = video ? video.closest('.hero-video-wrap') : null;
+    if (!video || !wrap) return;
+
+    var loaded = false;
+    video.addEventListener('loadeddata', function () { loaded = true; });
+    video.addEventListener('canplay', function () { loaded = true; });
+
+    setTimeout(function () {
+        if (!loaded) wrap.classList.add('video-failed');
+    }, 4000);
+
+    video.addEventListener('error', function () {
+        wrap.classList.add('video-failed');
+    });
+})();
+
+
+/* =========================================================
+   VIEWER COUNT
+========================================================= */
+
+(function () {
+    var viewerEl = document.getElementById('viewerCount');
+    if (!viewerEl) return;
+
+    var count = 18 + Math.floor(Math.random() * 12);
+
+    setInterval(function () {
+        var delta = Math.floor(Math.random() * 5) - 2;
+        count = Math.max(8, Math.min(45, count + delta));
+        viewerEl.textContent = count;
+    }, 3000);
+})();
+
+
+/* =========================================================
+   EXIT INTENT POPUP
+========================================================= */
+
+(function () {
+    var overlay = document.getElementById('exitOverlay');
+    var closeBtn = document.getElementById('exitClose');
+    var dismissBtn = document.getElementById('exitDismiss');
+    if (!overlay) return;
+
+    var shown = false;
+
+    function show() {
+        if (shown) return;
+        shown = true;
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function hide() {
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('mouseleave', function (e) {
+        if (e.clientY <= 0 && !shown) show();
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', hide);
+    if (dismissBtn) dismissBtn.addEventListener('click', hide);
+
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) hide();
+    });
+
+    var touchStart = 0;
+    document.addEventListener('touchstart', function (e) {
+        touchStart = e.touches[0].clientY;
+    });
+    document.addEventListener('touchmove', function (e) {
+        if (shown) return;
+        var y = e.touches[0].clientY;
+        if (y - touchStart > 60 && window.scrollY < 50) show();
+    });
+})();
+
+function closeExitPopup() {
+    var overlay = document.getElementById('exitOverlay');
+    if (overlay) overlay.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+
+/* =========================================================
    GOAL COUNTER ANIMATION
 ========================================================= */
 

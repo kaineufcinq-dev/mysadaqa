@@ -87,8 +87,11 @@
                 </p>
             </div>
 
-            <div class="hero-image">
-                <img src="https://images.pexels.com/photos/226617/pexels-photo-226617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Main d'adulte et d'enfant qui se tiennent, symbole d'espoir et de soutien" loading="eager">
+            <div class="hero-image hero-video-wrap">
+                <video autoplay muted loop playsinline id="heroVideo" poster="https://images.pexels.com/photos/6895226/pexels-photo-6895226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                    <source src="https://cdn.pixabay.com/video/2024/09/18/236934_large.mp4" type="video/mp4">
+                </video>
+                <img src="https://images.pexels.com/photos/6895226/pexels-photo-6895226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Enfants recevant de l'aide humanitaire, symbole d'espoir et de solidarité" class="hero-video-fallback" loading="eager">
                 <div class="hero-image-overlay"></div>
                 <div class="hero-image-quote">
                     « Le Prophète ﷺ a dit : “Celui qui sauve une vie, c'est comme s'il avait sauvé toute l'humanité. » — Sourate Al-Ma'ida, verset 32 »
@@ -165,6 +168,11 @@
                         <span class="testimonial-author">— Yasmine, Marseille</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="viewer-badge" id="viewerBadge">
+                <div class="viewer-dot"></div>
+                <span><strong id="viewerCount">23</strong> personnes regardent cette cagnotte maintenant</span>
             </div>
 
             <div class="don-feed" id="donFeed">
@@ -311,6 +319,25 @@
             <p class="footer-sub">« Et quiconque sauve une vie, c'est comme s'il avait sauvé toute l'humanité. » — Sourate Al-Ma'ida, verset 32</p>
         </footer>
 
+    </div>
+
+    <!-- Exit intent popup -->
+    <div class="exit-overlay" id="exitOverlay">
+        <div class="exit-card">
+            <button class="exit-close" id="exitClose" aria-label="Fermer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="exit-icon">
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Ne partez pas sans donner</h3>
+            <p>Un enfant compte sur vous aujourd'hui. Chaque euro compte. Faites votre sadaqa en 2 minutes, anonyme et sans inscription.</p>
+            <button class="btn-primary btn-large btn-block btn-pulse" onclick="closeExitPopup(); goToStep(2);">
+                Faire ma sadaqa maintenant
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <button class="exit-dismiss" id="exitDismiss">Non, je reviendrai plus tard</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
